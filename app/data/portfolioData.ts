@@ -98,7 +98,7 @@ export const experiences = [
 
 // Note: I mapped your projects to the categories based on your resume's grouping.
 // The 'longDescription' is inferred from the project title, 'metrics' are omitted due to lack of data.
-export const projects: Project[] = [
+export const projects = [
   // Java / Spring Boot Projects
   {
     id: 1,

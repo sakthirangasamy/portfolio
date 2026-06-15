@@ -4,7 +4,24 @@ import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
 import { ExternalLink, TrendingUp } from "lucide-react";
 import { IconGithub } from "../lib/socialIcons";
 import { useRef } from "react";
-import type { Project } from "../data/portfolioData";
+// DELETE THIS LINE - DO NOT IMPORT Project from portfolioData
+// import type { Project } from "../data/portfolioData";
+
+// ADD THIS Project interface directly here
+interface Project {
+  id: number;
+  title: string;
+  description: string;
+  longDescription?: string;
+  image: string;
+  tech: string[];
+  github: string;
+  live: string;
+  category: string;
+  featured?: boolean;
+  metrics: Record<string, string>;
+  color: string;
+}
 
 interface Props {
   project: Project;

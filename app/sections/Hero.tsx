@@ -2,8 +2,7 @@
 
 import { motion, useScroll, useTransform, useSpring, useMotionValue, useMotionTemplate } from "framer-motion";
 import { useState, useEffect, useRef, useCallback } from "react";
-import { Mail, Download, ArrowRight, ChevronDown, Sparkles, Copy, Check, Send, Calendar, MessageCircle, Linkedin, Github } from "lucide-react";
-import { IconGithub, IconLinkedin, IconTwitter } from "../lib/socialIcons";
+import { Mail, Download, ArrowRight, ChevronDown, Sparkles, Copy, Check, Send, Calendar, MessageCircle } from "lucide-react";import { IconGithub, IconLinkedin, IconTwitter } from "../lib/socialIcons";
 import FloatingIcons from "../components/FloatingIcons";
 import { profile } from "../data/portfolioData";
 
@@ -70,7 +69,6 @@ const SmartContactDropdown = () => {
 
   const contactOptions = [
     { icon: MessageCircle, label: "WhatsApp", action: () => window.open(`https://wa.me/${profile.phone?.replace(/[^0-9]/g, '')}?text=Hi%20${profile.name}%2C%20I%20found%20your%20profile%20and%20would%20like%20to%20discuss%20an%20opportunity.`, '_blank'), color: "#25D366" },
-    { icon: Calendar, label: "Schedule Meet", action: () => window.open(profile.calendly || "https://calendly.com", '_blank'), color: "#7C3AED" },
     { icon: Copy, label: copied ? "Copied!" : "Copy Email", action: copyEmail, color: "#6B7280" },
     { icon: Mail, label: "Open Email", action: () => window.location.href = `mailto:${profile.email}`, color: "#EA4335" },
   ];
@@ -129,7 +127,7 @@ const BackgroundParticles = () => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const particlesRef = useRef<Array<{ x: number; y: number; size: number; speedX: number; speedY: number; opacity: number }>>([]);
   const mouseRef = useRef({ x: 0, y: 0 });
-  const animationRef = useRef<number>();
+ const animationRef = useRef<number | null>(null);
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -524,7 +522,7 @@ export default function Hero() {
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6, delay: 0.35 }}
             >
-              {profile.lastName}
+              {/* {profile.lastName} */}
             </motion.span>
           </h1>
         </motion.div>
