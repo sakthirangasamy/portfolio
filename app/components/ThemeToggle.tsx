@@ -2,14 +2,30 @@
 
 import { motion } from "framer-motion";
 import { Moon, Sun } from "lucide-react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 export default function ThemeToggle() {
   const [isDark, setIsDark] = useState(true);
 
+  useEffect(() => {
+    // Set initial theme
+    const isDarkMode = document.documentElement.classList.contains("dark");
+    setIsDark(isDarkMode);
+  }, []);
+
   const toggle = () => {
-    setIsDark((prev) => !prev);
-    // Portfolio is dark-only by design; this is a visual toggle
+    const newIsDark = !isDark;
+    setIsDark(newIsDark);
+    
+    if (newIsDark) {
+      document.documentElement.classList.add("dark");
+      document.body.style.backgroundColor = "#0f0f1a";
+      document.body.style.color = "#ffffff";
+    } else {
+      document.documentElement.classList.remove("dark");
+      document.body.style.backgroundColor = "#ffffff";
+      document.body.style.color = "#18181b";
+    }
   };
 
   return (
@@ -20,15 +36,7 @@ export default function ThemeToggle() {
       whileTap={{ scale: 0.95 }}
       aria-label="Toggle theme"
     >
-      <motion.div
-        key={isDark ? "moon" : "sun"}
-        initial={{ rotate: -30, opacity: 0 }}
-        animate={{ rotate: 0, opacity: 1 }}
-        exit={{ rotate: 30, opacity: 0 }}
-        transition={{ duration: 0.2 }}
-      >
-        {isDark ? <Moon size={16} /> : <Sun size={16} />}
-      </motion.div>
+      {isDark ? <Moon size={16} /> : <Sun size={16} />}
     </motion.button>
   );
 }

@@ -6,17 +6,17 @@ import { profile } from "../data/portfolioData";
 import { fadeInUp, slideInLeft, slideInRight, staggerContainer } from "../lib/utils";
 
 const highlights = [
-  { icon: Code2,    label: "Core Stack",   value: "Java · Spring · React",  color: "#6366f1" },
-  { icon: Cloud,    label: "Cloud",        value: "AWS · K8s · Docker",      color: "#06b6d4" },
-  { icon: Zap,      label: "Performance",  value: "99.99% SLA",              color: "#f59e0b" },
-  { icon: Users,    label: "Team Scale",   value: "Led 8-engineer teams",    color: "#10b981" },
+  { icon: Code2, label: "Core Stack", value: "Java · Spring · React", color: "#6366f1" },
+  { icon: Cloud, label: "Cloud", value: "AWS · K8s · Docker", color: "#06b6d4" },
+  { icon: Zap, label: "Performance", value: "99.99% SLA", color: "#f59e0b" },
+  { icon: Users, label: "Team Scale", value: "Led 8-engineer teams", color: "#10b981" },
 ];
 
 const values = [
-  { emoji: "🏗️", title: "Clean Architecture",  desc: "SOLID, DDD, Event-Driven — built to last." },
-  { emoji: "⚡",  title: "Performance First",   desc: "P99 latency under 50ms is the bar." },
-  { emoji: "🔒",  title: "Security by Design",  desc: "OAuth2, RBAC, zero-trust by default." },
-  { emoji: "🚀",  title: "DevOps Culture",      desc: "If it's not automated, it's not done." },
+  { emoji: "🏗️", title: "Clean Architecture", desc: "SOLID, DDD, Event-Driven — built to last." },
+  { emoji: "⚡", title: "Performance First", desc: "P99 latency under 50ms is the bar." },
+  { emoji: "🔒", title: "Security by Design", desc: "OAuth2, RBAC, zero-trust by default." },
+  { emoji: "🚀", title: "DevOps Culture", desc: "If it's not automated, it's not done." },
 ];
 
 export default function About() {
@@ -92,10 +92,10 @@ export default function About() {
                 {/* Info grid */}
                 <div className="grid grid-cols-2 gap-3 mb-6">
                   {[
-                    { icon: Calendar,  label: "Experience", value: `${profile.experience} Years` },
-                    { icon: Briefcase, label: "Status",     value: profile.availability },
-                    { icon: MapPin,    label: "Location",   value: "Chennai, India" },
-                    { icon: Code2,     label: "Specialty",  value: "Full Stack + Cloud" },
+                    { icon: Calendar, label: "Experience", value: `${profile.experience} Years` },
+                    { icon: Briefcase, label: "Status", value: profile.availability },
+                    { icon: MapPin, label: "Location", value: "Chennai, India" },
+                    { icon: Code2, label: "Specialty", value: "Full Stack + Cloud" },
                   ].map(({ icon: Icon, label, value }) => (
                     <div
                       key={label}
@@ -171,6 +171,7 @@ export default function About() {
             </div>
 
             {/* Quick facts */}
+            {/* Quick facts */}
             <motion.div
               variants={fadeInUp}
               className="p-5 rounded-2xl border"
@@ -179,15 +180,21 @@ export default function About() {
               <h4 className="text-xs font-semibold text-[#818cf8] uppercase tracking-widest mb-3">Quick Facts</h4>
               <ul className="space-y-2">
                 {[
-                  "🎓 B.E. Computer Science – Anna University, 2017",
-                  "🏆 6 Professional Certifications (AWS, CKA, Oracle Java)",
-                  "📦 22+ microservices architected in production",
-                  "🌍 Contributed to 3 open-source Spring Boot starters",
-                ].map((fact) => (
-                  <li key={fact} className="flex items-start gap-2 text-sm text-[--text-secondary]">
-                    <span className="flex-shrink-0">{fact.split(" ")[0]}</span>
+                  "🎓 BCA – Periyar University, Vysya College, Salem (2023)",
+                  "☁️ AWS integrated (EC2, S3, Lambda) for cloud deployment",
+                  "🐳 Docker & Kubernetes basics for container orchestration",
+                
+                ].map((fact, index) => (
+                  <motion.li
+                    key={fact}
+                    className="flex items-start gap-2 text-sm text-[--text-secondary]"
+                    initial={{ opacity: 0, x: -20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: 0.1 * index }}
+                  >
+                    <span className="flex-shrink-0 text-base">{fact.split(" ")[0]}</span>
                     <span>{fact.slice(fact.indexOf(" ") + 1)}</span>
-                  </li>
+                  </motion.li>
                 ))}
               </ul>
             </motion.div>

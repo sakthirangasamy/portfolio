@@ -115,7 +115,7 @@ export default function Projects() {
           className="text-center mt-12"
         >
           <a
-            href="https://github.com/sakthir"
+            href="https://github.com/sakthirangasamy"
             target="_blank"
             rel="noopener noreferrer"
             className="btn-secondary inline-flex"

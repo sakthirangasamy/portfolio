@@ -33,7 +33,7 @@ export default function Experience() {
             <span className="gradient-text">Journey</span>
           </motion.h2>
           <motion.p variants={fadeInUp} className="text-[--text-secondary] mt-4 max-w-xl mx-auto text-sm">
-            8+ years of progressive growth — from backend engineer to team lead building systems at scale.
+            1+ years of progressive growth — from backend engineer to team lead building systems at scale.
           </motion.p>
         </motion.div>
 
